@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour {
     void Start () {
         collider  = gameObject.GetComponent<Collider>();
         rigidbody = gameObject.GetComponent<Rigidbody>();
-        RespawnThisEnemy();
+        //RespawnThisEnemy();
     }
 	
 	void Update () {
@@ -26,21 +26,13 @@ public class Enemy : MonoBehaviour {
 
     void RespawnThisEnemy()
     {
-        transform.rotation = Quaternion.identity;
-        transform.position = new Vector3(
-            Random.Range(-respawnRange, respawnRange),
-            0,
-            Random.Range(-respawnRange, respawnRange)
-            );
-        gameObject.GetComponent<Collider>().enabled = true;
-
-        rigidbody.velocity = new Vector3(0,0,0);
-        collider.enabled = true;
+        Respawn.RespawnRandomSquare(gameObject.gameObject,respawnRange);
     }
 
     public void KillThisEnemy()
     {
         rigidbody.AddForce(new Vector3(10, 500, 10));
         collider.enabled = false;
+        GetComponentInParent<DestructableObject>().ApplyDestruction();
     }
 }
