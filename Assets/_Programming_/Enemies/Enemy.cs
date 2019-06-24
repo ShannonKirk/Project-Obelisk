@@ -4,18 +4,46 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    [SerializeField] readonly float destroyBelowY = -10;
+    [SerializeField] readonly float respawnRange = 20;
+
+    Collider collider;
+    Rigidbody rigidbody;
+
+    // Use this for initialization
+    void Start () {
+        collider  = gameObject.GetComponent<Collider>();
+        rigidbody = gameObject.GetComponent<Rigidbody>();
+        RespawnThisEnemy();
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
+
+        if(transform.position.y < destroyBelowY)
+        {
+            RespawnThisEnemy();
+        }
 	}
+
+    void RespawnThisEnemy()
+    {
+        transform.rotation = Quaternion.identity;
+        transform.position = new Vector3(
+            Random.Range(-respawnRange, respawnRange),
+            0,
+            Random.Range(-respawnRange, respawnRange)
+            );
+        gameObject.GetComponent<Collider>().enabled = true;
+
+        rigidbody.velocity = new Vector3(0,0,0);
+        collider.enabled = true;
+    }
 
     public void KillThisEnemy()
     {
-        Destroy(gameObject);
+        rigidbody.AddForce(new Vector3(10, 500, 10));
+        collider.enabled = false;
     }
 }

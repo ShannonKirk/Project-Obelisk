@@ -20,8 +20,7 @@ public class ClickToKillEnemy : MonoBehaviour {
             {
                 if (Input.GetMouseButtonDown(0))
                 {
-                    //hit.transform.gameObject.GetComponent<Enemy>().KillThisEnemy();
-                    hit.transform.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(10,500,10));
+                    hit.transform.gameObject.GetComponent<Enemy>().KillThisEnemy();
                 }
             }
         }
