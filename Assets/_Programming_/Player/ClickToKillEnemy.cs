@@ -12,16 +12,16 @@ public class ClickToKillEnemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        RaycastHit hit;
-
-        if (Physics.Raycast(transform.position, transform.forward, out hit))
+        Debug.DrawRay(PlayerManager.camera.transform.position, transform.forward * 10,Color.green,0,false);
+        if (Input.GetMouseButtonDown(0))
         {
-            if (hit.transform.gameObject.GetComponent<Enemy>())
+            RaycastHit hit;
+            PlayerManager.playerAnimations.playAnimation("Attack");
+
+            if (Physics.Raycast(PlayerManager.camera.transform.position, transform.forward, out hit) &&
+                hit.transform.gameObject.GetComponent<Enemy>())
             {
-                if (Input.GetMouseButtonDown(0))
-                {
-                    hit.transform.gameObject.GetComponent<Enemy>().KillThisEnemy();
-                }
+                hit.transform.gameObject.GetComponent<Enemy>().KillThisEnemy();
             }
         }
 	}

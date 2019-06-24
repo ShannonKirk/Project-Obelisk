@@ -7,20 +7,17 @@ public class Enemy : MonoBehaviour {
     [SerializeField] readonly float destroyBelowY = -10;
     [SerializeField] readonly float respawnRange = 20;
 
-    Collider collider;
-    Rigidbody rigidbody;
+    new Collider collider;
+    new Rigidbody rigidbody;
 
-    // Use this for initialization
+
     void Start () {
         collider  = gameObject.GetComponent<Collider>();
         rigidbody = gameObject.GetComponent<Rigidbody>();
         RespawnThisEnemy();
     }
 	
-	// Update is called once per frame
 	void Update () {
-		
-
         if(transform.position.y < destroyBelowY)
         {
             RespawnThisEnemy();
