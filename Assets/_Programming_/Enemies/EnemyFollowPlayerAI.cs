@@ -12,7 +12,7 @@ public class EnemyFollowPlayerAI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        target = LookForPlayer.instance.player.transform;
+        target = PlayerManager.Player.transform;
         agent = GetComponent<NavMeshAgent>();
 		
 	}
