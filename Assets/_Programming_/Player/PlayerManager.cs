@@ -6,10 +6,12 @@ public static class PlayerManager {
 
     //please use this instead of assigning player scripts in the editor
     //that causes problems with prefabs
+    //these values should be set in PlayerManagerSetup
 
-    //public static Player_Pickup player_Pickup; // ive only assigned this one in start() so far
-    //public static Player_Clone player_Clone;
+    public static GameObject Player;
+    public static Camera camera;
+
     public static PlayerController playerController;
     public static CamMouseLook camMouseLook;
-    public static GameObject Player; //and this
+    public static PlayerAnimations playerAnimations;
 }

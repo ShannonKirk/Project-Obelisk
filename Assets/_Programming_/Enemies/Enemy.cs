@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    [SerializeField] readonly float destroyBelowY = -10;
+
+    new Collider collider;
+    new Rigidbody rigidbody;
+
+
+    void Start () {
+        collider  = gameObject.GetComponent<Collider>();
+        rigidbody = gameObject.GetComponent<Rigidbody>();
+        Respawn.RespawnRandomSquare(gameObject);
+    }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void KillThisEnemy()
     {
-        Destroy(gameObject);
+        GetComponentInParent<DestructableObject>().ApplyDestruction();
     }
 }
