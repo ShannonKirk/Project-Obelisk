@@ -21,7 +21,7 @@ public class ClickToKillEnemy : MonoBehaviour {
             PlayerManager.playerAnimations.playAnimation("Attack");
 
             if (Physics.Raycast(PlayerManager.camera.transform.position, transform.forward, out hit) &&
-                hit.transform.position.magnitude - gameObject.transform.position.magnitude < maxRange &&
+                hit.distance < maxRange &&
                 hit.transform.gameObject.GetComponent<Enemy>())
             {
                 hit.transform.gameObject.GetComponent<Enemy>().KillThisEnemy();

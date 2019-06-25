@@ -2700,7 +2700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6437101a4a1623843abddcd2f9bbcb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRange: 1.8
+  maxRange: 2.2
 --- !u!95 &783438066
 Animator:
   serializedVersion: 3

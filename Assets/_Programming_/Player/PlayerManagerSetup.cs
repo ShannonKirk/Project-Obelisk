@@ -11,5 +11,6 @@ public class PlayerManagerSetup : MonoBehaviour {
         PlayerManager.playerAnimations = GetComponent<PlayerAnimations>();
         PlayerManager.playerController = GetComponent<PlayerController>();
         PlayerManager.camera = GetComponentInChildren<Camera>();
+        PlayerManager.Player = gameObject;
     }
 }

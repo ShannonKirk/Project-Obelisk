@@ -21,7 +21,6 @@ public class DestructableObject : MonoBehaviour {
         if (destroyed && 
             destroyedParts.transform.GetChild(0).position.y < respawnBelowY)
         {
-            Debug.Log("yes");
             Respawn.RespawnRandomSquare(gameObject);
             ResetDestruction();
         }
@@ -41,5 +40,9 @@ public class DestructableObject : MonoBehaviour {
         destroyedParts = Instantiate(destroyedPrefab);
         destroyedParts.transform.position = normalState.transform.position;
         destroyedParts.transform.rotation = normalState.transform.rotation;
+       // for (int i = 0; i < destroyedParts.transform.ChildCount(); i++)
+        //{
+
+        //}
     }
 }
