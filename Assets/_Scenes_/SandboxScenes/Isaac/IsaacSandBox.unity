@@ -2578,8 +2578,8 @@ GameObject:
   - component: {fileID: 783438059}
   - component: {fileID: 783438065}
   - component: {fileID: 783438067}
-  - component: {fileID: 783438066}
   - component: {fileID: 783438068}
+  - component: {fileID: 783438066}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2700,6 +2700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6437101a4a1623843abddcd2f9bbcb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxRange: 1.8
 --- !u!95 &783438066
 Animator:
   serializedVersion: 3
