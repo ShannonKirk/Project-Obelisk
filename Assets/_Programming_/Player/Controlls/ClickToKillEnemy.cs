@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ClickToKillEnemy : MonoBehaviour {
 
+    //this script is made obsolete by ClickToMelleAttack
+
     [SerializeField] float maxRange;
 
 	// Use this for initialization

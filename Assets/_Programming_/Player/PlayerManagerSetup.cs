@@ -8,9 +8,11 @@ public class PlayerManagerSetup : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
         PlayerManager.playerAnimations = GetComponent<PlayerAnimations>();
         PlayerManager.playerController = GetComponent<PlayerController>();
         PlayerManager.camera = GetComponentInChildren<Camera>();
-        PlayerManager.Player = gameObject;
+        PlayerManager.player = gameObject;
+        PlayerManager.respawnPoint = transform.position;
     }
 }

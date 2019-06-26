@@ -8,10 +8,12 @@ public static class PlayerManager {
     //that causes problems with prefabs
     //these values should be set in PlayerManagerSetup
 
-    public static GameObject Player;
+    public static GameObject player;
     public static Camera camera;
 
     public static PlayerController playerController;
     public static CamMouseLook camMouseLook;
     public static PlayerAnimations playerAnimations;
+
+    public static Vector3 respawnPoint;
 }
