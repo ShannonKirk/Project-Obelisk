@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate() {
+        if (PlayerManager.alive == false) { return; }
+
         //Max Speed
         horizontalMovement = new Vector2(rb.velocity.x, rb.velocity.z);
         if(horizontalMovement.magnitude > maxSpeed) {

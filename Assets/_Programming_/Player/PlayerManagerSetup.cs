@@ -7,10 +7,18 @@ public class PlayerManagerSetup : MonoBehaviour {
     //sets up the playermanager class with the right shtuffs
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+
         PlayerManager.playerAnimations = GetComponent<PlayerAnimations>();
         PlayerManager.playerController = GetComponent<PlayerController>();
         PlayerManager.camera = GetComponentInChildren<Camera>();
-        PlayerManager.Player = gameObject;
+        PlayerManager.player = gameObject;
+        PlayerManager.respawnPoint = transform.position;
+        PlayerManager.playerDeath = GetComponent<PlayerDeath>();
+    }
+
+    private void Update()
+    {
+        PlayerManager.SecondsPlayerAlive += Time.deltaTime;
     }
 }

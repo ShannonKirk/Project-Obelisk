@@ -20,5 +20,6 @@ public class Enemy : MonoBehaviour {
     public void KillThisEnemy()
     {
         GetComponentInParent<DestructableObject>().ApplyDestruction();
+        PlayerManager.enemiesPlayerKilled++;
     }
 }
