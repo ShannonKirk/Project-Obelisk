@@ -4,23 +4,11 @@ using UnityEngine;
 
 public class KillPlayerOnTouch : MonoBehaviour {
 
-    [SerializeField] bool useTrigger = true;
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (useTrigger)
-        {
-            PlayerManager.player.transform.position = PlayerManager.respawnPoint;
-        }
-        
-    }
-
-
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player" && PlayerManager.alive)
         {
-            PlayerManager.player.transform.position = PlayerManager.respawnPoint;
+            PlayerManager.playerDeath.killPlayer();
         }
     }
 }
