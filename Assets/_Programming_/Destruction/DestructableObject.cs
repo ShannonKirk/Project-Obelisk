@@ -40,9 +40,9 @@ public class DestructableObject : MonoBehaviour {
         destroyedParts = Instantiate(destroyedPrefab);
         destroyedParts.transform.position = normalState.transform.position;
         destroyedParts.transform.rotation = normalState.transform.rotation;
-       // for (int i = 0; i < destroyedParts.transform.ChildCount(); i++)
-        //{
-
-        //}
+        for (int i = 0; i < destroyedParts.transform.childCount; i++)
+        {
+            destroyedParts.transform.GetChild(i).gameObject.GetComponent<Rigidbody>().AddForce(PlayerManager.Player.transform.forward *5000);
+        }
     }
 }
