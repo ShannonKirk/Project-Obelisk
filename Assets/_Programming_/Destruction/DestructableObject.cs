@@ -38,6 +38,7 @@ public class DestructableObject : MonoBehaviour {
         destroyed = true;
         normalState.SetActive(false);
         destroyedParts = Instantiate(destroyedPrefab);
+        destroyedParts.SetActive(true);
         destroyedParts.transform.position = normalState.transform.position;
         destroyedParts.transform.rotation = normalState.transform.rotation;
         for (int i = 0; i < destroyedParts.transform.childCount; i++)
