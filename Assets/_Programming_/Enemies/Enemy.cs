@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour {
 
     [SerializeField] readonly float destroyBelowY = -10;
 
+    [SerializeField] bool respawnOnStart = true;
+
     new Collider collider;
     new Rigidbody rigidbody;
 
@@ -13,7 +15,10 @@ public class Enemy : MonoBehaviour {
     void Start () {
         collider  = gameObject.GetComponent<Collider>();
         rigidbody = gameObject.GetComponent<Rigidbody>();
-        Respawn.RespawnRandomSquare(gameObject);
+        if (respawnOnStart)
+        {
+            Respawn.RespawnRandomSquare(gameObject);
+        }
     }
 	
 
