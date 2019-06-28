@@ -18,4 +18,5 @@ public class Tags {
 
 public class Layers {
     public const string FPS = "FPS";
+    public const string DEFAULT = "Default";
 }
