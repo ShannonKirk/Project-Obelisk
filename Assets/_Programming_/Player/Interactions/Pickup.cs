@@ -2,27 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum FreeHands {
-    TWO_HANDS,
-    ONE_HAND,
-    NONE
-}
-
 public class Pickup : MonoBehaviour {
-
-    public FreeHands freeHands;
+    
     [SerializeField] bool carrying = false;
+    [SerializeField] WeaponHandler carriedHandler;
     [SerializeField] GameObject rightHandWeapon;
-    [SerializeField] WeaponHandler rightCarriedHandler;
-    [SerializeField] Transform rightHand;
     [SerializeField] GameObject leftHandWeapon;
-    [SerializeField] WeaponHandler leftCarriedHandler;
+    [SerializeField] Transform rightHand;
     [SerializeField] Transform leftHand;
     [SerializeField] float startThrowHold = 0.0f;
     [SerializeField] float throwHoldTimer = 1.0f;
 
     private void Update() {
-        if (leftHandWeapon != null || rightHandWeapon != null) {
+        if (rightHandWeapon != null || leftHandWeapon == null) {
             CheckThrow();
         }
     }
@@ -33,7 +25,7 @@ public class Pickup : MonoBehaviour {
         ChangeLayerRecursively(weapon.transform, Layers.DEFAULT);
         weapon.GetComponent<Rigidbody>().useGravity = true;
         weapon.GetComponent<Rigidbody>().AddForce(hand.up * -1000);
-    }//throw
+    }//throw object
 
     void CheckThrow() {
         if (Input.GetKeyDown(KeyCode.Mouse0)) {
@@ -42,7 +34,7 @@ public class Pickup : MonoBehaviour {
         if (Input.GetKey(KeyCode.Mouse0)) {
             if (leftHandWeapon == null) { return; }
             if (startThrowHold + throwHoldTimer <= Time.time) {
-                Debug.Log("Through left weapon");
+                Debug.Log("Throw left weapon");
                 ThrowObject(leftHandWeapon, leftHand);
                 leftHandWeapon = null;
             }
@@ -53,7 +45,7 @@ public class Pickup : MonoBehaviour {
         if (Input.GetKey(KeyCode.Mouse1)) {
             if (rightHandWeapon == null) { return; }
             if (startThrowHold + throwHoldTimer <= Time.time) {
-                Debug.Log("Through right weapon");
+                Debug.Log("Throw right weapon");
                 ThrowObject(rightHandWeapon, rightHand);
                 rightHandWeapon = null;
             }
@@ -62,26 +54,16 @@ public class Pickup : MonoBehaviour {
 
     void PickUpObject(GameObject weapon) {
         ChangeLayerRecursively(weapon.transform, Layers.FPS);
-        switch (freeHands) {
-            case FreeHands.TWO_HANDS:
-                rightCarriedHandler = weapon.GetComponent<WeaponHandler>();
-                weapon.transform.parent = rightHand;
-                weapon.transform.localPosition = rightCarriedHandler.holdPositionRight;
-                weapon.transform.localEulerAngles = rightCarriedHandler.holdRotationRight;
-                rightHandWeapon = weapon;
-                freeHands = FreeHands.ONE_HAND;
-                break;
-            case FreeHands.ONE_HAND:
-                leftCarriedHandler = weapon.GetComponent<WeaponHandler>();
-                weapon.transform.parent = leftHand;
-                weapon.transform.localPosition = leftCarriedHandler.holdPositionLeft;
-                weapon.transform.localEulerAngles = leftCarriedHandler.holdRotationLeft;
-                leftHandWeapon = weapon;
-                freeHands = FreeHands.NONE;
-                break;
-            case FreeHands.NONE:
-                return;
+        carriedHandler = weapon.GetComponent<WeaponHandler>();
+        if (rightHandWeapon == null) {
+            weapon.transform.parent = rightHand;
+            rightHandWeapon = weapon;
+        } else {
+            weapon.transform.parent = leftHand;
+            leftHandWeapon = weapon;
         }
+        weapon.transform.localPosition = carriedHandler.holdPosition;
+        weapon.transform.localEulerAngles = carriedHandler.holdRotation;
     }//Pickup Object
 
     void ChangeLayerRecursively(Transform trans, string layerName) {
@@ -92,7 +74,8 @@ public class Pickup : MonoBehaviour {
     }//Change Layer
 
     private void OnTriggerEnter(Collider other) {
-        if(other.gameObject == rightHandWeapon || other.gameObject == leftHandWeapon) { return; }
+        //Ignores the trigger currently in players hand
+        if(other.gameObject == rightHandWeapon || other.gameObject == leftHandWeapon || (rightHandWeapon != null && leftHandWeapon != null)) { return; }
         if (other.tag == Tags.WEAPON) {
             PickUpObject(other.gameObject);
         }

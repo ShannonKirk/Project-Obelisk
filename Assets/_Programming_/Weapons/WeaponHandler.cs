@@ -11,10 +11,8 @@ public enum WeaponType {
 
 public class WeaponHandler : MonoBehaviour {
 
-    public Vector3 holdPositionRight;
-    public Vector3 holdRotationRight;
-    public Vector3 holdPositionLeft;
-    public Vector3 holdRotationLeft;
+    public Vector3 holdPosition;
+    public Vector3 holdRotation;
     public WeaponType weaponType;
 
 	void Start () {
