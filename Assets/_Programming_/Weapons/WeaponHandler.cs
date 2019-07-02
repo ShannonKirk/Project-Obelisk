@@ -13,6 +13,8 @@ public class WeaponHandler : MonoBehaviour {
 
     public Vector3 holdPosition;
     public Vector3 holdRotation;
+    public float damage;
+    public bool throwable;
     public WeaponType weaponType;
 
 	void Start () {
