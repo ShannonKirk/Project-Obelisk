@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 1}
+  m_AmbientSkyColor: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -113,7 +113,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 942832c1c6a40094f9f8d2b0602293ff, type: 2}
 --- !u!1 &11877125
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +220,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!65 &36964257
 BoxCollider:
@@ -284,7 +284,7 @@ Transform:
   m_GameObject: {fileID: 36964256}
   m_LocalRotation: {x: -0.4355119, y: 0.55707216, z: 0.4355119, w: 0.55707216}
   m_LocalPosition: {x: 11.590986, y: -2.3594456, z: -49.21431}
-  m_LocalScale: {x: 4.836712, y: 8.929024, z: 0.2308735}
+  m_LocalScale: {x: 4.836712, y: 9.769245, z: 0.2308735}
   m_Children: []
   m_Father: {fileID: 407347053}
   m_RootOrder: 7
@@ -502,7 +502,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.9150943, g: 0.45749527, b: 0.030215396, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -2066,15 +2066,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4509126833948086, guid: 74d72a9f7e0d2854a8a90510e0501c69, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 47.5
+      value: -32.87
       objectReference: {fileID: 0}
     - target: {fileID: 4509126833948086, guid: 74d72a9f7e0d2854a8a90510e0501c69, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11
+      value: 14.2
       objectReference: {fileID: 0}
     - target: {fileID: 4509126833948086, guid: 74d72a9f7e0d2854a8a90510e0501c69, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -9.5
+      value: -4.26
       objectReference: {fileID: 0}
     - target: {fileID: 4509126833948086, guid: 74d72a9f7e0d2854a8a90510e0501c69, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2082,7 +2082,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4509126833948086, guid: 74d72a9f7e0d2854a8a90510e0501c69, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4509126833948086, guid: 74d72a9f7e0d2854a8a90510e0501c69, type: 2}
       propertyPath: m_LocalRotation.z
@@ -2090,7 +2090,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4509126833948086, guid: 74d72a9f7e0d2854a8a90510e0501c69, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4509126833948086, guid: 74d72a9f7e0d2854a8a90510e0501c69, type: 2}
       propertyPath: m_RootOrder
@@ -2107,6 +2107,10 @@ Prefab:
       value: 
       objectReference: {fileID: 13400000, guid: 4d49e60fc87295b4a99ef00fce714042,
         type: 2}
+    - target: {fileID: 4509126833948086, guid: 74d72a9f7e0d2854a8a90510e0501c69, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74d72a9f7e0d2854a8a90510e0501c69, type: 2}
   m_IsPrefabAsset: 0
@@ -2125,7 +2129,7 @@ GameObject:
   m_Name: Cube (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &175522265
@@ -2636,7 +2640,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -2715,7 +2719,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -3430,7 +3434,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.9150943, g: 0.45749527, b: 0.030215396, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -3483,7 +3487,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -3652,7 +3656,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.9150943, g: 0.45749527, b: 0.030215396, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -4179,7 +4183,7 @@ Transform:
   m_GameObject: {fileID: 331883721}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 78.3987, y: 72.233505, z: 6.9422255}
-  m_LocalScale: {x: 3.3692553, y: 0.46617344, z: 12.005744}
+  m_LocalScale: {x: 3.3692553, y: 0.46617344, z: 12.151013}
   m_Children: []
   m_Father: {fileID: 1883632483}
   m_RootOrder: 16
@@ -4423,6 +4427,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 658657597af5cd849b49de1e94658eab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 658657597af5cd849b49de1e94658eab, type: 3}
   m_IsPrefabAsset: 0
@@ -4464,7 +4472,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.9150943, g: 0.45749527, b: 0.030215396, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -4689,7 +4697,7 @@ GameObject:
   m_Name: Cube (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &382511616
@@ -4797,7 +4805,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -4940,7 +4948,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -5752,6 +5760,10 @@ Prefab:
       propertyPath: m_Name
       value: stair collider (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 658657597af5cd849b49de1e94658eab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 658657597af5cd849b49de1e94658eab, type: 3}
   m_IsPrefabAsset: 0
@@ -5780,7 +5792,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -5846,7 +5858,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.9150943, g: 0.45749527, b: 0.030215396, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -6015,7 +6027,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -6057,7 +6069,7 @@ GameObject:
   m_Name: Cube (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &529073446
@@ -6221,7 +6233,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!65 &559497880
 BoxCollider:
@@ -6495,7 +6507,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -6921,7 +6933,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -7229,7 +7241,7 @@ GameObject:
   m_Name: Cube (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &650692592
@@ -7446,6 +7458,10 @@ Prefab:
     - target: {fileID: 100000, guid: 658657597af5cd849b49de1e94658eab, type: 3}
       propertyPath: m_Name
       value: stair collider (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 658657597af5cd849b49de1e94658eab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 658657597af5cd849b49de1e94658eab, type: 3}
@@ -7830,7 +7846,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.9150943, g: 0.45749527, b: 0.030215396, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -8068,7 +8084,7 @@ GameObject:
   m_Name: Cube (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &734683502
@@ -8441,7 +8457,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -8867,7 +8883,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -9288,7 +9304,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -9576,7 +9592,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -11285,7 +11301,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -11418,7 +11434,7 @@ GameObject:
   m_Name: Cube (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1072859471
@@ -11948,7 +11964,7 @@ GameObject:
   m_Name: Cube (42)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1152667099
@@ -12133,7 +12149,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -12370,7 +12386,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &1169666513
 BoxCollider:
@@ -12434,7 +12450,7 @@ Transform:
   m_GameObject: {fileID: 1169666512}
   m_LocalRotation: {x: -0.4464768, y: 0.5483234, z: 0.4464768, w: 0.5483234}
   m_LocalPosition: {x: 56.397987, y: -4.513446, z: -49.94431}
-  m_LocalScale: {x: 2.1016011, y: 1.8820994, z: 0.23087363}
+  m_LocalScale: {x: 2.1016011, y: 3.6490989, z: 0.23087363}
   m_Children: []
   m_Father: {fileID: 407347053}
   m_RootOrder: 9
@@ -12569,7 +12585,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -12778,6 +12794,88 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1203551999}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1208057351
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4744286005848778, guid: 2443740a596be72449112a9f6a770668, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -7.2063828
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744286005848778, guid: 2443740a596be72449112a9f6a770668, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 10.752329
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744286005848778, guid: 2443740a596be72449112a9f6a770668, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 7.6177874
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744286005848778, guid: 2443740a596be72449112a9f6a770668, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.0021638558
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744286005848778, guid: 2443740a596be72449112a9f6a770668, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.016555445
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744286005848778, guid: 2443740a596be72449112a9f6a770668, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.010102412
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744286005848778, guid: 2443740a596be72449112a9f6a770668, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.99980956
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744286005848778, guid: 2443740a596be72449112a9f6a770668, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4422602494797736, guid: 2443740a596be72449112a9f6a770668, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4422602494797736, guid: 2443740a596be72449112a9f6a770668, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4422602494797736, guid: 2443740a596be72449112a9f6a770668, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744286005848778, guid: 2443740a596be72449112a9f6a770668, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.22900002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744286005848778, guid: 2443740a596be72449112a9f6a770668, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 1.9000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744286005848778, guid: 2443740a596be72449112a9f6a770668, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 1.1620001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779275683276738, guid: 2443740a596be72449112a9f6a770668, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984935226146702, guid: 2443740a596be72449112a9f6a770668, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984935226146702, guid: 2443740a596be72449112a9f6a770668, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779275683276738, guid: 2443740a596be72449112a9f6a770668, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2443740a596be72449112a9f6a770668, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1224944758
 GameObject:
   m_ObjectHideFlags: 0
@@ -13430,7 +13528,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -13679,7 +13777,7 @@ GameObject:
   m_Name: Cube (40)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1287339996
@@ -13855,7 +13953,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!65 &1292319800
 BoxCollider:
@@ -13940,7 +14038,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!65 &1317907131
 BoxCollider:
@@ -14409,7 +14507,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -14452,7 +14550,7 @@ GameObject:
   m_Name: Cube (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1364412437
@@ -14536,7 +14634,7 @@ GameObject:
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &1373503401
@@ -14632,7 +14730,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -14685,7 +14783,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -15281,7 +15379,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.9150943, g: 0.45749527, b: 0.030215396, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -15450,7 +15548,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -16104,7 +16202,7 @@ GameObject:
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &1549594400
@@ -16785,7 +16883,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!65 &1597432619
 BoxCollider:
@@ -17061,7 +17159,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -17951,7 +18049,7 @@ GameObject:
   m_Name: Cube (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1765953519
@@ -18485,7 +18583,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.9150943, g: 0.45749527, b: 0.030215396, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -19301,7 +19399,7 @@ GameObject:
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &1862106206
@@ -19421,6 +19519,10 @@ Prefab:
     - target: {fileID: 100000, guid: 658657597af5cd849b49de1e94658eab, type: 3}
       propertyPath: m_Name
       value: stair collider (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 658657597af5cd849b49de1e94658eab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 658657597af5cd849b49de1e94658eab, type: 3}
@@ -20761,7 +20863,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!65 &2016382100
 BoxCollider:
@@ -21221,7 +21323,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!65 &2039860908
 BoxCollider:
@@ -21644,7 +21746,7 @@ GameObject:
   m_Name: Cube (43)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &2074517283
@@ -21739,7 +21841,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.9150943, g: 0.45749527, b: 0.030215396, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -21818,7 +21920,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.735849, g: 0.3419656, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
@@ -22154,7 +22256,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.9150943, g: 0.45749527, b: 0.030215396, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
