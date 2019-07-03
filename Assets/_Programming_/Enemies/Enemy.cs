@@ -5,16 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     [SerializeField] readonly float destroyBelowY = -10;
-
-    [SerializeField] bool respawnOnStart = true;
-    
-    new Collider collider;
-    new Rigidbody rigidbody;
-
+    [SerializeField] bool respawnOnStart = false;
 
     void Start () {
-        collider  = gameObject.GetComponent<Collider>();
-        rigidbody = gameObject.GetComponent<Rigidbody>();
         if (respawnOnStart)
         {
             Respawn.RespawnRandomSquare(gameObject);
