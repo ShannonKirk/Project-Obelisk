@@ -10,7 +10,7 @@ public class PlayerManagerSetup : MonoBehaviour {
 	void Awake () {
 
         PlayerManager.playerAnimations = GetComponent<PlayerAnimations>();
-        PlayerManager.playerController = GetComponent<PlayerController>();
+        PlayerManager.playerMovement = GetComponent<PlayerMovement>();
         PlayerManager.camera = GetComponentInChildren<Camera>();
         PlayerManager.player = gameObject;
         PlayerManager.respawnPoint = transform.position;
