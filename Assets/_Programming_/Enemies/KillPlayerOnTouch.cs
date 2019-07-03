@@ -8,6 +8,7 @@ public class KillPlayerOnTouch : MonoBehaviour {
     {
         if(other.gameObject.tag == "Player" && PlayerManager.alive)
         {
+            Debug.Log("KILL PLAYER");
             PlayerManager.playerDeath.killPlayer();
         }
     }
