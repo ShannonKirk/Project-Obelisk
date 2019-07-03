@@ -15,8 +15,10 @@ public class ClickToMeleeAttack : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
+        Debug.Log(other.GetComponent<Enemy>());
         if (Input.GetMouseButtonDown(0) && other.gameObject.GetComponent<Enemy>() && PlayerManager.alive == true)
         {
+            Debug.Log("kill");
            other.gameObject.GetComponent<Enemy>().KillThisEnemy();
         }
     }
