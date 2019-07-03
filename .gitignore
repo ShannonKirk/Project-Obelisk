@@ -35,4 +35,4 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-Assets/_Scenes_/SandboxScenes/Cameron/
+*.meta
