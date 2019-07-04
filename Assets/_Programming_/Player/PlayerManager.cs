@@ -14,10 +14,10 @@ public static class PlayerManager {
 
 
     //other player scripts
-    public static PlayerController playerController;
+    public static PlayerMovement playerMovement;
     public static PlayerAnimations playerAnimations;
     public static PlayerDeath playerDeath;
-    public static CamMouseLook camMouseLook;
+    public static MouseLook mouseLook;
     
 
     public static Vector3 respawnPoint;
