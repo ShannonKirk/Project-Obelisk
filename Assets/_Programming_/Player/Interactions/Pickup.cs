@@ -77,7 +77,8 @@ public class Pickup : MonoBehaviour {
     }//Check throw
 
     void PickUpObject(GameObject weapon) {
-            carriedHandler = weapon.GetComponent<WeaponHandler>();
+        Debug.Log(weapon);
+        carriedHandler = weapon.GetComponent<WeaponHandler>();
         switch (carriedHandler.weaponType) {
             case WeaponType.TWO_HANDED:
                 rightHandWeapon = weapon;

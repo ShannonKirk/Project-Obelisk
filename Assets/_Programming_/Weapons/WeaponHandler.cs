@@ -16,12 +16,9 @@ public class WeaponHandler : MonoBehaviour {
     public float damage;
     public bool throwable;
     public WeaponType weaponType;
+    
+    IEnumerator ResetWeapon() {
+        yield return null;
+    }
 
-	void Start () {
-		
-	}
-	
-	void Update () {
-		
-	}
 }
