@@ -15,6 +15,7 @@ public class PlayerManagerSetup : MonoBehaviour {
         PlayerManager.player = gameObject;
         PlayerManager.respawnPoint = transform.position;
         PlayerManager.playerDeath = GetComponent<PlayerDeath>();
+        Cursor.visible = false;
     }
 
     private void Update()
