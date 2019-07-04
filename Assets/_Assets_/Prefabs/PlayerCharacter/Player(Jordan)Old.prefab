@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 114142603654846940}
   - component: {fileID: 114771801328994462}
   m_Layer: 0
-  m_Name: Player(Jordan)
+  m_Name: Player(Jordan)Old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -791,8 +791,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c2b8a8ecfbf824a83e3105a8111e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carrying: 0
-  carriedObject: {fileID: 0}
+  carriedHandler: {fileID: 0}
+  rightHandWeapon: {fileID: 0}
+  leftHandWeapon: {fileID: 0}
+  rightHand: {fileID: 0}
+  leftHand: {fileID: 0}
+  startThrowHold: 0
+  throwHoldTimer: 1
 --- !u!114 &114844093368928242
 MonoBehaviour:
   m_ObjectHideFlags: 1

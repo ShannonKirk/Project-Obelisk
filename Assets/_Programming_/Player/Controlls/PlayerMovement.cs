@@ -16,7 +16,10 @@ public class PlayerMovement : MonoBehaviour {
     }
     
 	void Update () {
-        Movement();
+        if (PlayerManager.alive)
+        {
+            Movement();
+        }
 	}
 
     void Movement() {
