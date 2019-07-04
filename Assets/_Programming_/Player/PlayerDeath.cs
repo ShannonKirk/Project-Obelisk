@@ -50,7 +50,7 @@ public class PlayerDeath : MonoBehaviour {
     public void reload()
     {
         
-        SceneManager.LoadScene("Greybox With Enemies");
+        SceneManager.LoadScene("prototype");
         PlayerManager.alive = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

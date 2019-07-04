@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes_/SandboxScenes/Isaac/IsaacSandBox.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes_/SandboxScenes/Isaac/Greybox With Enemies.unity
     guid: ef229e3fadb452b4a87bf11d8f868ae5
+  - enabled: 1
+    path: Assets/_Scenes_/SandboxScenes/Isaac/prototype.unity
+    guid: 46248766f85c54f4fbf9f7d7be6c208b
   m_configObjects: {}
