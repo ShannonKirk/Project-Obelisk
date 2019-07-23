@@ -5,6 +5,7 @@ using UnityEngine;
 public class Axis {
     public const string HORIZONTAL = "Horizontal";
     public const string VERTICAL = "Vertical";
+    public const string JUMP = "Jump";
 }
 
 public class MouseAxis {
@@ -14,6 +15,8 @@ public class MouseAxis {
 
 public class Tags {
     public const string WEAPON = "Weapon";
+    public const string UP_STAIR = "UpStair";
+    public const string DOWN_STAIR = "DownStair";
 }
 
 public class Layers {
