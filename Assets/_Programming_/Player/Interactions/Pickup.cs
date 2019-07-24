@@ -24,6 +24,8 @@ public class Pickup : MonoBehaviour {
     }
 
     void ThrowObject(GameObject weapon, Transform hand) {
+        weapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        weapon.transform.GetChild(1).GetComponent<Collider>().enabled = true;
         weapon.transform.parent = null;
         ChangeLayerRecursively(weapon.transform, Layers.DEFAULT);
         weapon.GetComponent<Rigidbody>().useGravity = true;
@@ -79,6 +81,7 @@ public class Pickup : MonoBehaviour {
     void PickUpObject(GameObject weapon) {
         Debug.Log(weapon);
         carriedHandler = weapon.GetComponent<WeaponHandler>();
+        weapon.transform.GetChild(1).GetComponent<Collider>().enabled = false;
         switch (carriedHandler.weaponType) {
             case WeaponType.TWO_HANDED:
                 rightHandWeapon = weapon;
@@ -87,6 +90,7 @@ public class Pickup : MonoBehaviour {
                 attackScript.rightDamage = attackScript.leftDamage = carriedHandler.damage;
                 weapon.transform.localPosition = carriedHandler.holdPosition;
                 weapon.transform.localEulerAngles = carriedHandler.holdRotation;
+                weapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
                 ChangeLayerRecursively(weapon.transform, Layers.FPS);
                 break;
             case WeaponType.ONE_HANDED:
@@ -101,6 +105,7 @@ public class Pickup : MonoBehaviour {
                 }
                 weapon.transform.localPosition = carriedHandler.holdPosition;
                 weapon.transform.localEulerAngles = carriedHandler.holdRotation;
+                weapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
                 ChangeLayerRecursively(weapon.transform, Layers.FPS);
                 break;
         }

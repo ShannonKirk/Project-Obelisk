@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float maxSlope = 60;
     private Rigidbody rb;
     private Vector2 horizontalMovement;
-    private bool grounded = false;
+    [SerializeField] private bool grounded = false;
     private float deccelX = 0;
     private float deccelZ = 0;
 
@@ -43,6 +43,9 @@ public class PlayerMovement : MonoBehaviour {
         } else {
             rb.AddRelativeForce(Input.GetAxis(Axis.HORIZONTAL) * accel * airAccel * Time.deltaTime, 0, Input.GetAxis(Axis.VERTICAL) * accel * airAccel * Time.deltaTime);
         }
+    }
+
+    private void Update() {
         //Jump
         if (Input.GetButtonDown(Axis.JUMP) && grounded) {
             rb.AddForce(0, jumpForce, 0);
@@ -59,22 +62,5 @@ public class PlayerMovement : MonoBehaviour {
 
     private void OnCollisionExit(Collision collision) {
         grounded = false;
-    }
-
-    private void OnTriggerEnter(Collider other) {
-        var vel = rb.velocity;
-        if (other.transform.tag == "UpStair") {
-            if (grounded && Vector3.Angle(rb.velocity, other.transform.forward) < 90) {
-                if (rb.velocity.y > 0) {
-                    Debug.Log("Trigger");
-                    vel.y = 0;
-                    rb.velocity = vel;
-                }
-            }
-        } if (other.transform.tag == "DownStair") {
-            if (grounded && Vector3.Angle(rb.velocity, other.transform.forward) < 90) {
-                rb.AddForce(0, -1000, 0);
-            }
-        }
     }
 }
