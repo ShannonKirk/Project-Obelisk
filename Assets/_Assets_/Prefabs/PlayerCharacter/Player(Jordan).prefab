@@ -477,11 +477,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4463555671306446}
-  - component: {fileID: 114142603654846940}
-  - component: {fileID: 114771801328994462}
   - component: {fileID: 49823719}
   - component: {fileID: 49823720}
+  - component: {fileID: 114142603654846940}
+  - component: {fileID: 114771801328994462}
   - component: {fileID: 49823718}
+  - component: {fileID: 5483617860904014233}
   m_Layer: 0
   m_Name: Player(Jordan)
   m_TagString: Untagged
@@ -504,43 +505,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114142603654846940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623038678746708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6ee52db1fb0cea46b286cc706626794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accel: 8000
-  airAccel: 0.1
-  deccel: 0.1
-  maxSpeed: 15
-  jumpForce: 10
-  maxSlope: 60
---- !u!114 &114771801328994462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623038678746708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14c2b8a8ecfbf824a83e3105a8111e42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carriedHandler: {fileID: 0}
-  rightHandWeapon: {fileID: 0}
-  leftHandWeapon: {fileID: 0}
-  rightHand: {fileID: 4407979446338974}
-  leftHand: {fileID: 4809217905584748}
-  startThrowHold: 0
-  throwHoldTimer: 0.3
 --- !u!54 &49823719
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -571,6 +535,44 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &114142603654846940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623038678746708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ee52db1fb0cea46b286cc706626794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accel: 8000
+  airAccel: 0.1
+  deccel: 0.1
+  maxSpeed: 15
+  jumpForce: 10
+  maxSlope: 60
+  grounded: 0
+--- !u!114 &114771801328994462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623038678746708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c2b8a8ecfbf824a83e3105a8111e42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carriedHandler: {fileID: 0}
+  rightHandWeapon: {fileID: 0}
+  leftHandWeapon: {fileID: 0}
+  rightHand: {fileID: 4407979446338974}
+  leftHand: {fileID: 4809217905584748}
+  startThrowHold: 0
+  throwHoldTimer: 0.3
 --- !u!114 &49823718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,6 +588,18 @@ MonoBehaviour:
   fistDamage: 10
   rightDamage: 0
   leftDamage: 0
+--- !u!114 &5483617860904014233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623038678746708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf8dce953060c474bb5c454bb8b400f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1668011584549000
 GameObject:
   m_ObjectHideFlags: 0
