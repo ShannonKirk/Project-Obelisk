@@ -17,6 +17,7 @@ public class Tags {
     public const string WEAPON = "Weapon";
     public const string UP_STAIR = "UpStair";
     public const string DOWN_STAIR = "DownStair";
+    public const string PLAYER = "Player";
 }
 
 public class Layers {
