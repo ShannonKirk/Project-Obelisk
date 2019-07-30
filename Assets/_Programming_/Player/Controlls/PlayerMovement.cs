@@ -4,41 +4,63 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    private CharacterController characterController;
-    private Vector3 moveDirection;
-    private float gravity = 20f;
-    private float verticalVelocity;
-    [SerializeField] float speed = 5f;
-    [SerializeField] float jumpForce = 10f;
+    [SerializeField] private float accel = 1000;
+    [SerializeField] private float airAccel = 0.1f;
+    [SerializeField] private float deccel = 5;
+    [SerializeField] private float maxSpeed = 20;
+    [SerializeField] private float jumpForce = 800;
+    [SerializeField] private float maxSlope = 60;
+    private Rigidbody rb;
+    private Vector2 horizontalMovement;
+    [SerializeField] private bool grounded = false;
+    private float deccelX = 0;
+    private float deccelZ = 0;
 
-    private void Awake() {
-        characterController = GetComponent<CharacterController>();
+
+    void Start() {
+        rb = GetComponent<Rigidbody>();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
-    
-	void Update () {
-        if (PlayerManager.alive)
-        {
-            Movement();
+
+    private void FixedUpdate() {
+        //Max Speed
+        horizontalMovement = new Vector2(rb.velocity.x, rb.velocity.z);
+        if (horizontalMovement.magnitude > maxSpeed)  {
+            horizontalMovement = horizontalMovement.normalized * maxSpeed;
         }
-	}
-
-    void Movement() {
-        moveDirection = new Vector3(Input.GetAxis(Axis.HORIZONTAL), 0f, Input.GetAxis(Axis.VERTICAL));
-        moveDirection = transform.TransformDirection(moveDirection);
-        moveDirection *= speed * Time.deltaTime;
-        ApplyGravity();
-        characterController.Move(moveDirection);
-    }
-
-    void ApplyGravity() {
-        verticalVelocity -= gravity * Time.deltaTime;
-        PlayerJump();
-        moveDirection.y = verticalVelocity * Time.deltaTime;
-    }
-
-    void PlayerJump() {
-        if(characterController.isGrounded && Input.GetKeyDown(KeyCode.Space)) {
-            verticalVelocity = jumpForce;
+        rb.velocity = new Vector3(horizontalMovement.x, rb.velocity.y, horizontalMovement.y);
+        //Decceleration
+        var vel = rb.velocity;
+        if (grounded) {
+            vel.x = Mathf.SmoothDamp(vel.x, 0, ref deccelX, deccel);
+            vel.z = Mathf.SmoothDamp(vel.z, 0, ref deccelZ, deccel);
+            rb.velocity = vel;
         }
+        //Movement
+        if (grounded) {
+            rb.AddRelativeForce(Input.GetAxis(Axis.HORIZONTAL) * accel * Time.deltaTime, 0, Input.GetAxis(Axis.VERTICAL) * accel * Time.deltaTime);
+        } else {
+            rb.AddRelativeForce(Input.GetAxis(Axis.HORIZONTAL) * accel * airAccel * Time.deltaTime, 0, Input.GetAxis(Axis.VERTICAL) * accel * airAccel * Time.deltaTime);
+        }
+    }
+
+    private void Update() {
+        //Jump
+        if (Input.GetButtonDown(Axis.JUMP) && grounded) {
+            rb.AddForce(0, jumpForce, 0);
+        }
+    }
+
+    private void OnCollisionStay(Collision collision) {
+        foreach (ContactPoint contact in collision.contacts) {
+            if (Vector3.Angle(contact.normal, Vector3.up) < maxSlope) {
+                grounded = true;
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision) {
+        grounded = false;
     }
 }

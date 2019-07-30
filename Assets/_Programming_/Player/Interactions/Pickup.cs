@@ -24,9 +24,9 @@ public class Pickup : MonoBehaviour {
     }
 
     void ThrowObject(GameObject weapon, Transform hand) {
+        StartCoroutine(weapon.GetComponent<WeaponHandler>().ThrowWeapon());
         weapon.transform.parent = null;
         ChangeLayerRecursively(weapon.transform, Layers.DEFAULT);
-        weapon.GetComponent<Rigidbody>().useGravity = true;
         weapon.GetComponent<Rigidbody>().AddForce(hand.up * -1000);
     }//throw object
 
@@ -37,7 +37,7 @@ public class Pickup : MonoBehaviour {
         attackScript.ResetDamage();
         leftHandWeapon = null;
         rightHandWeapon = null;
-    }
+    }//Drop
 
     void CheckThrow() {
         //--------------------------LEFT HAND THROW-------------------------------\\
@@ -48,7 +48,6 @@ public class Pickup : MonoBehaviour {
             if (leftHandWeapon == null) { return; }
             if (startThrowHold + throwHoldTimer <= Time.time) {
                 if (leftHandWeapon.GetComponent<WeaponHandler>().throwable) {
-                    Debug.Log("Throw left weapon");
                     ThrowObject(leftHandWeapon, leftHand);
                     leftHandWeapon = null;
                     attackScript.leftDamage = attackScript.fistDamage;
@@ -65,7 +64,6 @@ public class Pickup : MonoBehaviour {
             if (rightHandWeapon == null) { return; }
             if (startThrowHold + throwHoldTimer <= Time.time) {
                 if (rightHandWeapon.GetComponent<WeaponHandler>().throwable) {
-                    Debug.Log("Throw right weapon");
                     ThrowObject(rightHandWeapon, rightHand);
                     rightHandWeapon = null;
                     attackScript.rightDamage = attackScript.fistDamage;
@@ -77,7 +75,8 @@ public class Pickup : MonoBehaviour {
     }//Check throw
 
     void PickUpObject(GameObject weapon) {
-            carriedHandler = weapon.GetComponent<WeaponHandler>();
+        carriedHandler = weapon.GetComponent<WeaponHandler>();
+        weapon.transform.GetChild(1).GetComponent<Collider>().enabled = false;
         switch (carriedHandler.weaponType) {
             case WeaponType.TWO_HANDED:
                 rightHandWeapon = weapon;
@@ -86,6 +85,7 @@ public class Pickup : MonoBehaviour {
                 attackScript.rightDamage = attackScript.leftDamage = carriedHandler.damage;
                 weapon.transform.localPosition = carriedHandler.holdPosition;
                 weapon.transform.localEulerAngles = carriedHandler.holdRotation;
+                weapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
                 ChangeLayerRecursively(weapon.transform, Layers.FPS);
                 break;
             case WeaponType.ONE_HANDED:
@@ -100,6 +100,7 @@ public class Pickup : MonoBehaviour {
                 }
                 weapon.transform.localPosition = carriedHandler.holdPosition;
                 weapon.transform.localEulerAngles = carriedHandler.holdRotation;
+                weapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
                 ChangeLayerRecursively(weapon.transform, Layers.FPS);
                 break;
         }

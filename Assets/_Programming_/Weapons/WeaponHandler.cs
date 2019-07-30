@@ -7,21 +7,37 @@ public enum WeaponType {
     TWO_HANDED
 }
 
-
-
 public class WeaponHandler : MonoBehaviour {
 
+    private Rigidbody rb;
     public Vector3 holdPosition;
     public Vector3 holdRotation;
     public float damage;
     public bool throwable;
     public WeaponType weaponType;
 
-	void Start () {
-		
-	}
-	
-	void Update () {
-		
-	}
+    private void Start() {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void OnCollisionStay(Collision collision) {
+        StartCoroutine(ResetWeapon());
+    }
+
+    public IEnumerator ThrowWeapon() {
+        rb.constraints = RigidbodyConstraints.None;
+        rb.useGravity = true;
+        yield return new WaitForSeconds(0.05f);
+        transform.GetChild(1).GetComponent<Collider>().enabled = true;
+    }
+    
+    IEnumerator ResetWeapon() {
+        yield return new WaitForSeconds(1);
+        rb.useGravity = false;
+        var pos = transform.position;
+        pos.y = 1.6f;
+        transform.position = pos;
+        transform.eulerAngles = new Vector3(0, 0, 0);
+    }
+
 }
