@@ -31,7 +31,7 @@ public class EnemySight : MonoBehaviour {
                         transform.LookAt(player.transform);
                         Vector3 movement = transform.forward * Time.deltaTime;
                         agent.Move(movement);
-                        agent.SetDestination(player.transform.position);
+                        //agent.SetDestination(player.transform.position);
                         Debug.Log("Player Spotted");
                     }
                 }
