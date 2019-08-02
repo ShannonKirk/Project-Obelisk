@@ -5,46 +5,163 @@ using UnityEditor;
 
 public class EnemyAI : MonoBehaviour{
 
-    public Transform target;
-    [SerializeField] bool isInView;
+    public Transform playerTarget;
+    [SerializeField] AIState aiState;
+    Vector3 direction;
+    Vector3 rotDirection;
+    bool isInAngle;
+    bool isClear;
+    float distance;
     float viewRadius = 10;
+    float maxDistance = 30;
     float viewAngle = 110;
-    int cycle = 10;
-    int counter = 0;
+    int lFrame = 15;
+    int lFrame_counter = 0;
+    int llFrame = 35;
+    int llFrame_counter = 0;
+
+    delegate void EveryFrame();
+    EveryFrame everyFrame;
+    delegate void LateFrame();
+    LateFrame lateFrame;
+    delegate void LateLateFrame();
+    LateLateFrame llateFrame;
 
     private void Start() {
-        counter = Random.Range(0, 10);
+        aiState = AIState.idle;
+        ChangeState(AIState.idle);
     }
 
-    public void Update() {
-        FieldOfView();
-    }
-
-    void FieldOfView() {
-        if (target == null) {
-            isInView = false;
-            return;
+    private void Update() {
+        Debug.Log(aiState.ToString());
+        MonitorStates();
+        if (everyFrame != null)
+            everyFrame();
+        lFrame_counter++;
+        if(lFrame_counter > lFrame) {
+            if (lateFrame != null)
+                lateFrame();
+            lFrame_counter = 0;
         }
-        float distance = Vector3.Distance(target.position, transform.position);
-        isInView = (distance < viewRadius);
-        if (isInView) {
-            Vector3 direction = target.position - transform.position;
-            Vector3 rotDirection = direction;
-            rotDirection.y = 0;
-            if (rotDirection == Vector3.zero)
-                rotDirection = transform.forward;
-            float angle = Vector3.Angle(transform.forward, rotDirection);
-            if (angle < viewAngle / 2) {
-                RaycastHit hit;
-                Vector3 origin = transform.position + Vector3.up;
-                Debug.DrawRay(origin, direction * viewRadius);
-                if (Physics.Raycast(origin, direction, out hit, viewRadius)) {
-                    if (hit.transform.CompareTag(Tags.PLAYER)) {
-                        Quaternion targetRotation = Quaternion.LookRotation(direction);
-                        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 20);
-                    }
-                }
+        llFrame_counter++;
+        if (llFrame_counter > llFrame)
+        {
+            if (llateFrame != null)
+                llateFrame();
+            llFrame_counter = 0;
+        }
+    }
+
+    void MonitorStates() {
+        switch (aiState) {
+            case AIState.idle:
+                if (distance < viewRadius)
+                    ChangeState(AIState.inRadius);
+                if (distance > maxDistance)
+                    ChangeState(AIState.lateIdle);
+                break;
+            case AIState.lateIdle:
+                if (distance < maxDistance)
+                    ChangeState(AIState.idle);
+                break;
+            case AIState.inRadius:
+                if (distance > viewRadius)
+                    ChangeState(AIState.idle);
+                if (isClear)
+                    ChangeState(AIState.inView);
+                break;
+            case AIState.inView:
+                if (distance > viewRadius)
+                    ChangeState(AIState.inRadius);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void ChangeState(AIState targetState) {
+        aiState = targetState;
+        everyFrame = null;
+        lateFrame = null;
+        llateFrame = null;
+        switch (targetState) {
+            case AIState.idle:
+                lateFrame = IdleBehaviours;
+                break;
+            case AIState.lateIdle:
+                llateFrame = IdleBehaviours;
+                break;
+            case AIState.inRadius:
+                lateFrame = InRadiusBehaviours;
+                break;
+            case AIState.inView:
+                lateFrame = InRadiusBehaviours;
+                everyFrame = InViewBehaviours;
+                break;
+            default:
+                break;
+        }
+    }
+
+    void IdleBehaviours() {
+        if (playerTarget == null)
+            return;
+        DistanceCheck(playerTarget);
+    }
+
+    void InRadiusBehaviours(){
+        if (playerTarget == null)
+            return;
+        DistanceCheck(playerTarget);
+        FindDirection(playerTarget);
+        AngleCheck();
+        IsClearView(playerTarget); 
+    }
+
+    void InViewBehaviours() {
+        if (playerTarget == null)
+            return;
+        FindDirection(playerTarget);
+        RotateTowardsTarget();
+    }
+
+    void DistanceCheck(Transform target) {
+        distance = Vector3.Distance(transform.position, target.position);
+    }
+
+    void IsClearView(Transform target) {
+        isClear = false;
+        RaycastHit hit;
+        Vector3 origin = transform.position + Vector3.up;
+        Debug.DrawRay(origin, direction * viewRadius);
+        if (Physics.Raycast(origin, direction, out hit, viewRadius)) {
+            if (hit.transform.CompareTag(Tags.PLAYER)) {
+                isClear = true;
             }
         }
+    }
+
+    void AngleCheck() {
+        Vector3 rotDirection = direction;
+        rotDirection.y = 0;
+        if (rotDirection == Vector3.zero)
+            rotDirection = transform.forward;
+        float angle = Vector3.Angle(transform.forward, rotDirection);
+        isInAngle = (angle < viewAngle / 2);
+    }
+
+    void RotateTowardsTarget() {
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 20);
+    }
+
+    void FindDirection(Transform target) {
+        direction = target.position - transform.position;
+        rotDirection = direction;
+        rotDirection.y = 0;
+    }
+
+    public enum AIState {
+        idle, lateIdle, inRadius, inView
     }
 }

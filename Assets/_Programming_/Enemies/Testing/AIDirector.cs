@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AIDirector : MonoBehaviour {
-
+    /*
     [SerializeField] Transform player;
     [SerializeField] List<EnemyAI> all = new List<EnemyAI>();
     List<EnemyAI> close = new List<EnemyAI>();
@@ -25,7 +25,7 @@ public class AIDirector : MonoBehaviour {
                 close.Add(all[i]);
             else
                 far.Add(all[i]);
-            all[i].target = player;
+            all[i].playerTarget = player;
         }
     }
 
@@ -44,5 +44,5 @@ public class AIDirector : MonoBehaviour {
                 //far[i].RotateEnemy();
             }
         }
-    }
+    }*/
 }

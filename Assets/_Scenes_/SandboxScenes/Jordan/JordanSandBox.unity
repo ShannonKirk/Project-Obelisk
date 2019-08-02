@@ -1718,8 +1718,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db48d5189dd4ff24d81dda74cb3b377d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1790803847}
-  isInView: 0
+  playerTarget: {fileID: 1790803847}
+  aiState: 0
 --- !u!1001 &3560553061570195365
 PrefabInstance:
   m_ObjectHideFlags: 0
