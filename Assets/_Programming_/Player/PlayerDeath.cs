@@ -33,6 +33,10 @@ public class PlayerDeath : MonoBehaviour {
         deathScreen.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         PlayerManager.player.transform.position = PlayerManager.respawnPoint;
-        PlayerManager.player.GetComponent<Rigidbody>().velocity = new Vector3();
+        if (PlayerManager.player.GetComponent<Rigidbody>())
+        {
+            PlayerManager.player.GetComponent<Rigidbody>().velocity = new Vector3();
+        }
+        
     }
 }
