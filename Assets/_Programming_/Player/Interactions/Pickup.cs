@@ -5,9 +5,9 @@ using UnityEngine;
 public class Pickup : MonoBehaviour {
     
     private Attack attackScript;
-    [SerializeField] WeaponHandler carriedHandler;
-    [SerializeField] GameObject rightHandWeapon;
-    [SerializeField] GameObject leftHandWeapon;
+    WeaponHandler carriedHandler;
+    GameObject rightHandWeapon;
+    GameObject leftHandWeapon;
     [SerializeField] Transform rightHand;
     [SerializeField] Transform leftHand;
     [SerializeField] float startThrowHold = 0.0f;

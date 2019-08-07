@@ -41,7 +41,6 @@ GameObject:
   - component: {fileID: 4095453254451824}
   - component: {fileID: 33501979074295060}
   - component: {fileID: 23753720868144896}
-  - component: {fileID: 65823644154680214}
   m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
@@ -108,19 +107,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &65823644154680214
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337964309971998}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1390627988122636
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +150,6 @@ GameObject:
   - component: {fileID: 4751724198711862}
   - component: {fileID: 33024968182500866}
   - component: {fileID: 23200279395004056}
-  - component: {fileID: 65094382309927434}
   m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
@@ -231,19 +216,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &65094382309927434
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393283998679490}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1445967986061468
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,8 +457,8 @@ GameObject:
   - component: {fileID: 5483617860904014233}
   m_Layer: 0
   m_Name: Player(Jordan)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_TagString: Player
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -551,7 +523,7 @@ MonoBehaviour:
   airAccel: 0.1
   deccel: 0.1
   maxSpeed: 15
-  jumpForce: 10
+  jumpForce: 600
   maxSlope: 60
   grounded: 0
 --- !u!114 &114771801328994462
@@ -566,9 +538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c2b8a8ecfbf824a83e3105a8111e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carriedHandler: {fileID: 0}
-  rightHandWeapon: {fileID: 0}
-  leftHandWeapon: {fileID: 0}
   rightHand: {fileID: 4407979446338974}
   leftHand: {fileID: 4809217905584748}
   startThrowHold: 0
@@ -585,6 +554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a898df36bebd34e8b658167222d282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainCamera: {fileID: 20880887254426694}
   fistDamage: 10
   rightDamage: 0
   leftDamage: 0
@@ -694,7 +664,6 @@ GameObject:
   - component: {fileID: 4258472569197822}
   - component: {fileID: 33086471111887770}
   - component: {fileID: 23123688957361314}
-  - component: {fileID: 65539736218200612}
   m_Layer: 10
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -761,19 +730,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &65539736218200612
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670294590085058}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1683819135918970
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,7 +773,6 @@ GameObject:
   - component: {fileID: 4397205711325204}
   - component: {fileID: 33908124402421332}
   - component: {fileID: 23794480419398258}
-  - component: {fileID: 65969582567631244}
   m_Layer: 10
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -884,19 +839,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &65969582567631244
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1688136638971392}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1888735244996218
 GameObject:
   m_ObjectHideFlags: 0

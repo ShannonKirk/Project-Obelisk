@@ -5,9 +5,11 @@ using UnityEngine;
 public class Attack : MonoBehaviour {
 
     private Pickup pickupScript;
-    public float fistDamage;
-    public float rightDamage;
-    public float leftDamage;
+    private float attackDist = 3;
+    [SerializeField] private Camera MainCamera;
+    public int fistDamage;
+    public int rightDamage;
+    public int leftDamage;
 
 	void Awake () {
         pickupScript = GetComponent<Pickup>();
@@ -25,7 +27,17 @@ public class Attack : MonoBehaviour {
         rightDamage = leftDamage = fistDamage;
     }
 
-    void AttackEnemy(float damage) {
-        Debug.Log("Deal " + damage + " to enemy");
+    void AttackEnemy(int damage) {
+        float x = Screen.width / 2;
+        float y = Screen.height / 2;
+        Ray ray = MainCamera.ScreenPointToRay(new Vector3(x, y));
+        RaycastHit hit;
+        if(Physics.Raycast(ray, out hit)) {
+            if (hit.distance <= attackDist) {
+                if (hit.collider.tag == Tags.ENEMY) {
+                    hit.collider.gameObject.GetComponent<EnemyDeathScript>().DealDamage(damage);
+                }
+            }
+        }
     }
 }

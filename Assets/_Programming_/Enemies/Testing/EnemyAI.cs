@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour{
 
@@ -12,8 +12,8 @@ public class EnemyAI : MonoBehaviour{
     bool isInAngle;
     bool isClear;
     float distance;
-    float viewRadius = 10;
-    float maxDistance = 30;
+    float viewRadius = 20;
+    float maxDistance = 60;
     float viewAngle = 110;
     int lFrame = 15;
     int lFrame_counter = 0;
@@ -27,13 +27,15 @@ public class EnemyAI : MonoBehaviour{
     delegate void LateLateFrame();
     LateLateFrame llateFrame;
 
+    NavMeshAgent agent;
+
     private void Start() {
+        agent = GetComponent<NavMeshAgent>();
         aiState = AIState.idle;
         ChangeState(AIState.idle);
     }
 
     private void Update() {
-        Debug.Log(aiState.ToString());
         MonitorStates();
         if (everyFrame != null)
             everyFrame();
@@ -67,7 +69,7 @@ public class EnemyAI : MonoBehaviour{
             case AIState.inRadius:
                 if (distance > viewRadius)
                     ChangeState(AIState.idle);
-                if (isClear)
+                if (isClear && isInAngle)
                     ChangeState(AIState.inView);
                 break;
             case AIState.inView:
@@ -123,6 +125,7 @@ public class EnemyAI : MonoBehaviour{
             return;
         FindDirection(playerTarget);
         RotateTowardsTarget();
+        MoveToPosition(playerTarget.position);
     }
 
     void DistanceCheck(Transform target) {
@@ -133,7 +136,6 @@ public class EnemyAI : MonoBehaviour{
         isClear = false;
         RaycastHit hit;
         Vector3 origin = transform.position + Vector3.up;
-        Debug.DrawRay(origin, direction * viewRadius);
         if (Physics.Raycast(origin, direction, out hit, viewRadius)) {
             if (hit.transform.CompareTag(Tags.PLAYER)) {
                 isClear = true;
@@ -142,6 +144,7 @@ public class EnemyAI : MonoBehaviour{
     }
 
     void AngleCheck() {
+        isInAngle = false;
         Vector3 rotDirection = direction;
         rotDirection.y = 0;
         if (rotDirection == Vector3.zero)
@@ -159,6 +162,10 @@ public class EnemyAI : MonoBehaviour{
         direction = target.position - transform.position;
         rotDirection = direction;
         rotDirection.y = 0;
+    }
+
+    void MoveToPosition(Vector3 playerPosition) {
+        agent.SetDestination(playerPosition);
     }
 
     public enum AIState {

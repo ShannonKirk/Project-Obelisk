@@ -12,12 +12,18 @@ public class WeaponHandler : MonoBehaviour {
     private Rigidbody rb;
     public Vector3 holdPosition;
     public Vector3 holdRotation;
-    public float damage;
+    public int damage;
     public bool throwable;
     public WeaponType weaponType;
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        if(collision.gameObject.tag == Tags.ENEMY) {
+            collision.gameObject.GetComponent<EnemyDeathScript>().DealDamage(damage);
+        }
     }
 
     private void OnCollisionStay(Collision collision) {
